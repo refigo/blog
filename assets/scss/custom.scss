@@ -1,3 +1,13 @@
 /*
     You can add your own custom styles here.
 */
+
+// Code Black Wrapping
+.article-content {
+    pre {
+        code {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+        }
+    }
+}

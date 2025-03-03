@@ -1,11 +1,12 @@
 ---
 title: (가제)CAD 파일을 Unity, Isaac Sim 등으로 가져오려면? 무료 툴로 STP -> FBX 변환하는 법
 description: 
+date: 2025-02-20
 created: 2025-02-20
 updated: 2025-02-20
 tags: 
 category: Tech Notes
-is_draft: true
+draft: true
 ---
 
 시뮬레이션 툴(Unity, NVIDIA Isaac Sim 등)을 이용해 디지털 트윈을 구현하기 위해서는 실제 3D 설계 모델을 시뮬레이션 환경에서 사용할 수 있도록 확장자를 변환해주는 것이 필요하다.

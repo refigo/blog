@@ -1,6 +1,7 @@
 ---
 title: Ubuntu 22.04에서 ScreenCast WebM 영상을 MP4로 변환하기
 description: FFmpeg를 이용해 WebM을 MP4로 변환하는 방법을 설명합니다.
+date: 2025-02-14T09:46:00
 created: 2025-02-14T09:46:00
 updated: 2025-02-19
 tags:
@@ -9,8 +10,8 @@ tags:
   - ubuntu
   - webm
   - mp4
-category: Tech Notes
-is_draft: false
+categories: Media
+draft: false
 ---
 
 # Ubuntu 22.04에서 ScreenCast WebM 영상을 MP4로 변환하기
