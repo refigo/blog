@@ -15,9 +15,13 @@ updated: 2025-03-04
 
 Hugo 블로그의 Stack 테마를 사용할 때, 기본적으로 코드 블록이 wrapping되지 않는 문제가 있었다.
 
-![](non-wrapping-code-block.png)
+## 문제 상황
+
+![코드 블록 줄바꿈 전](non-wrapping-code-block.png)
 
 테마 설정에서 해당 옵션에서 찾으려고 했지만 해결하지 못했다. 결국 아래와 같이 CSS를 수정하는 방식으로 문제를 해결했다.
+
+## 해결 방법
 
 Hugo Stack 테마에서 코드 블록의 wrapping을 활성화하기 위해서는 CSS를 수정해야 한다. `custom.scss` 파일에 다음과 같은 스타일을 추가하는 것이 필요하다.
 
@@ -39,7 +43,7 @@ Hugo Stack 테마에서 코드 블록의 wrapping을 활성화하기 위해서�
 
 변경사항을 적용한 후 Hugo 서버를 재시작하면 코드 블록의 내용이 자동으로 줄바꿈되는 것을 확인할 수 있다.
 
-![](wrapping-code-block.png)
+![코드 블록 줄바꿈 후](wrapping-code-block.png)
 
 > 추가로, `custom.scss` 파일에 대해 설명하자면, SCSS 파일은 단순한 CSS 파일이 아니며 CSS를 더 효율적으로 작성할 수 있도록 도와주는 전처리(preprocessor) 언어다. SCSS는 일반 CSS 문법에 변수, 중첩, 믹스인, 함수 등의 기능을 추가해 보다 체계적이고 유지보수가 쉬운 스타일 시트를 작성할 수 있게 한다. 최종적으로 이 SCSS 파일은 표준 CSS로 컴파일되어 웹 브라우저가 인식할 수 있는 형태가 된다.
 
