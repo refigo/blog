@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on Refi Go</title><link>https://refigo.github.io/blog/tags/css/</link><description>Recent content in CSS on Refi Go</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 03 Mar 2025 01:16:00 +0000</lastBuildDate><atom:link href="https://refigo.github.io/blog/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo Stack 테마에서 코드 블록 자동 줄바꿈 활성화</title><link>https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/</link><pubDate>Mon, 03 Mar 2025 01:16:00 +0000</pubDate><guid>https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/</guid><description>&lt;p>Hugo 블로그의 Stack 테마를 사용할 때, 기본적으로 코드 블록이 wrapping되지 않는 문제가 있었다.&lt;/p>
+&lt;h2 id="문제-상황">문제 상황
+&lt;/h2>&lt;p>&lt;img src="https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/non-wrapping-code-block.png"
+width="1356"
+height="542"
+srcset="https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/non-wrapping-code-block_hu_cc33ef644595e260.png 480w, https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/non-wrapping-code-block_hu_bcbe920eb7d56acc.png 1024w"
+loading="lazy"
+alt="코드 블록 줄바꿈 전"
+class="gallery-image"
+data-flex-grow="250"
+data-flex-basis="600px"
+>&lt;/p>
+&lt;p>테마 설정에서 해당 옵션에서 찾으려고 했지만 해결하지 못했다. 결국 아래와 같이 CSS를 수정하는 방식으로 문제를 해결했다.&lt;/p>
+&lt;h2 id="해결-방법">해결 방법
+&lt;/h2>&lt;p>Hugo Stack 테마에서 코드 블록의 wrapping을 활성화하기 위해서는 CSS를 수정해야 한다. &lt;code>custom.scss&lt;/code> 파일에 다음과 같은 스타일을 추가하는 것이 필요하다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Code Black Wrapping
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nc">.article-content&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">code&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">white-space&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">pre-wrap&lt;/span> &lt;span class="k">!important&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">word-wrap&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">break-word&lt;/span> &lt;span class="k">!important&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>&lt;code>white-space: pre-wrap&lt;/code>: 코드 블록 내의 텍스트가 컨테이너 너비를 초과할 때 자동으로 줄바꿈&lt;/li>
+&lt;li>&lt;code>word-wrap: break-word&lt;/code>: 긴 단어나 문자열이 컨테이너 너비를 초과할 때 강제로 줄바꿈&lt;/li>
+&lt;li>&lt;code>!important&lt;/code> 규칙을 사용하여 테마의 기본 스타일을 덮어씀&lt;/li>
+&lt;/ol>
+&lt;p>변경사항을 적용한 후 Hugo 서버를 재시작하면 코드 블록의 내용이 자동으로 줄바꿈되는 것을 확인할 수 있다.&lt;/p>
+&lt;p>&lt;img src="https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/wrapping-code-block.png"
+width="1356"
+height="606"
+srcset="https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/wrapping-code-block_hu_9645259fcd61abe9.png 480w, https://refigo.github.io/blog/p/hugo-stack-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-%EC%BD%94%EB%93%9C-%EB%B8%94%EB%A1%9D-%EC%9E%90%EB%8F%99-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%99%9C%EC%84%B1%ED%99%94/wrapping-code-block_hu_1ddd5d77be405ca9.png 1024w"
+loading="lazy"
+alt="코드 블록 줄바꿈 후"
+class="gallery-image"
+data-flex-grow="223"
+data-flex-basis="537px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>추가로, &lt;code>custom.scss&lt;/code> 파일에 대해 설명하자면, SCSS 파일은 단순한 CSS 파일이 아니며 CSS를 더 효율적으로 작성할 수 있도록 도와주는 전처리(preprocessor) 언어다. SCSS는 일반 CSS 문법에 변수, 중첩, 믹스인, 함수 등의 기능을 추가해 보다 체계적이고 유지보수가 쉬운 스타일 시트를 작성할 수 있게 한다. 최종적으로 이 SCSS 파일은 표준 CSS로 컴파일되어 웹 브라우저가 인식할 수 있는 형태가 된다.&lt;/p>&lt;/blockquote></description></item></channel></rss>
